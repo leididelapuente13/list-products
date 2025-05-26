@@ -1,4 +1,4 @@
-output "api_url" {
-  description = "Base URL of the API Gateway"
-  value       = aws_api_gateway_deployment.api_deployment.invoke_url
+output "list_products_arn" {
+  description = "Base URL of list_products lambda"
+  value       = "aws_lambda_function.list_products.invoke_arn"
 }

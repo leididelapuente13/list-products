@@ -1,13 +1,12 @@
 import { APIGatewayProxyHandler } from 'aws-lambda';
-import { DynamoDBClient, ScanCommand } from '@aws-sdk/client-dynamodb';
+import { ScanCommand } from '@aws-sdk/client-dynamodb';
 import { unmarshall } from '@aws-sdk/util-dynamodb';
+import { dynamoDBClient } from './database/dynamoClient';
 
-const dynamoDBClient = new DynamoDBClient({ region: 'us-west-1' });
-
-export const listProducts: APIGatewayProxyHandler = async () => {
+export const handler: APIGatewayProxyHandler = async () => {
   try {
     const params = {
-      TableName: 'Products',
+      TableName: process.env.PRODUCTS_TABLE_NAME || 'Products',
     };
     const { Items } = await dynamoDBClient.send(new ScanCommand(params));
     const products = Items ? Items.map(item => unmarshall(item)) : [];
