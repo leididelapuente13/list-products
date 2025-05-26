@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rmdir /s /q dist || echo No dist folder to remove",
+    "build": "mkdir dist && xcopy src dist /E /I /Y",
+    "package": "npm run clean && npm run build && powershell Compress-Archive -Path dist\\* -DestinationPath create-product.zip -Force"
   },
   "keywords": [],
   "author": "",
