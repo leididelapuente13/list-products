@@ -1,0 +1,22 @@
+{
+  "name": "list-products",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.817.0",
+    "@aws-sdk/util-dynamodb": "^3.817.0",
+    "@types/aws-lambda": "^8.10.149",
+    "aws-sdk": "^2.1692.0",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21"
+  }
+}
